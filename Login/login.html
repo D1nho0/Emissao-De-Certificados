@@ -33,8 +33,9 @@
 </body>
 </html>
 
-<script>
+
     
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.querySelector('.login-form');
     const emailInput = document.getElementById('email');
@@ -82,9 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
             loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Entrando...';
             
             setTimeout(function() {
-                alert('Login bem-sucedido! Redirecionando...');
+                window.location.href = 'file:///F:/p.de.certificados/corpo/index.html#';
                 
-
                 loginButton.disabled = false;
                 loginButton.textContent = 'Entrar';
             }, 1500);
@@ -103,4 +103,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+</script>
 </script>
