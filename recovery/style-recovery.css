@@ -1,4 +1,98 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+
+body {
+    background-color:black ;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+h1 {
+    color: #000000;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    color: #000000;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1a73e8;
+}
+
+
+.login-button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.login-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+
+}
+
+
 .back-to-login {
     margin-top: 25px;
     text-align: center;
@@ -15,10 +109,38 @@
 }
 
 .back-to-login a:hover {
-    color: #1a73e8;
+    color: #373737;
     text-decoration: underline;
 }
 
-#recoveryForm .form-group {
-    margin-bottom: 15px;
+
+.transparent-footer {
+    background-color: transparent;
+    color: #13212e;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-content a:hover {
+    color: #333538;
+    text-decoration: underline;
+}
+
+
+.fa-spinner {
+    margin-right: 8px;
 }
