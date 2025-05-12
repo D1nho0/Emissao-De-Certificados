@@ -127,3 +127,28 @@ input:focus {
     color: #333538;
     text-decoration: underline;
 }
+
+
+.back-to-login {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.back-to-login a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-to-login a:hover {
+    color: #1a73e8;
+    text-decoration: underline;
+}
+
+#recoveryForm .form-group {
+    margin-bottom: 15px;
+}
