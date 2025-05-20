@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Certificado</title>
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+    <button onclick="gerarCertificado()">Gerar Certificado</button>
+    <script>
+        async function gerarCertificado() {
+            const { PDFDocument, rgb, StandardFonts } = PDFLib;
+
+            
+            const pdfDoc = await PDFDocument.create();
+            const page = pdfDoc.addPage([600, 400]); 
+
+    
+            const corFundo = rgb(1, 0.988, 0.937); 
+
+            
+            page.drawRectangle({
+                x: 0,
+                y: 0,
+                width: 600,
+                height: 400,
+                color: corFundo,
+                opacity: 1,
+                borderWidth: 0,
+            });
+
+            
+            const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+            const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
+            
+            page.drawText('CERTIFICADO', {
+                x: 180,
+                y: 320,
+                size: 30,
+                font: fontBold,
+                color: rgb(0, 0.2, 0.4), 
+            });
+
+            page.drawText('Conferimos que', {
+                x: 100,
+                y: 250,
+                size: 14,
+                font: fontRegular,
+                color: rgb(0, 0, 0), 
+            });
+
+            page.drawText('___________________________', {
+                x: 100,
+                y: 220,
+                size: 14,
+                font: fontRegular,
+                color: rgb(0.7, 0.7, 0.7), 
+            });
+
+            page.drawText('Data: ____/____/____', {
+                x: 100,
+                y: 180,
+                size: 12,
+                font: fontRegular,
+                color: rgb(0.3, 0.3, 0.3),
+            });
+
+
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            saveAs(blob, 'Certificado.pdf');
+        }
+    </script>
+</body>
+</html>
