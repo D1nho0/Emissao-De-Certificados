@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Certificado Horizontal</title>
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <img link rel=" website icon" type="png" href="corpo\emc-removebg-preview (1).png">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        button { 
+            padding: 12px 20px; 
+            background: #2c3e50; 
+            color: white; 
+            border: none; 
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer; 
+            transition: background 0.3s;
+        }
+        button:hover { background: #1a252f; }
+    </style>
+</head>
+<body>
+    <button onclick="gerarCertificado()">Gerar Certificado Horizontal</button>
+    
+    <script>
+        async function gerarCertificado() {
+            const { PDFDocument, rgb, StandardFonts } = PDFLib;
+
+            // Criar documento com dimensões 2000x1414 (horizontal)
+            const pdfDoc = await PDFDocument.create();
+            const page = pdfDoc.addPage([2000, 1414]);
+
+            // Configurações de fonte (com tamanhos ajustados para o novo formato)
+            const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+            const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
+            const fontItalic = await pdfDoc.embedFont(StandardFonts.HelveticaOblique);
+
+            // Cor de fundo branca
+            page.drawRectangle({
+                x: 0, y: 0, width: 2000, height: 1414,
+                color: rgb(1, 0.988, 0.937),
+                borderWidth: 0
+            });
+
+            // Adicionar logo (substitua pela URL da sua imagem)
+            try {
+                const logoUrl = "e,c"; // Imagem de exemplo
+                const logoResponse = await fetch(logoUrl);
+                const logoBytes = await logoResponse.arrayBuffer();
+                
+                let logoImage;
+                if (logoUrl.toLowerCase().endsWith('.png')) {
+                    logoImage = await pdfDoc.embedPng(logoBytes);
+                } else {
+                    logoImage = await pdfDoc.embedJpg(logoBytes);
+                }
+                
+                // Centralizar a logo no topo (ajuste o height conforme necessário)
+                const logoWidth = 300;
+                const logoHeight = 150;
+                const logoX = (page.getWidth() - logoWidth) / 2;
+                const logoY = page.getHeight() - 200; // Posição Y ajustável
+                
+                page.drawImage(logoImage, {
+                    x: logoX,
+                    y: logoY,
+                    width: logoWidth,
+                    height: logoHeight,
+                });
+            } catch (error) {
+                console.error('Erro ao carregar a logo:', error);
+            }
+
+            // Função para centralizar texto com opção de margem
+            function drawCenteredText(text, y, size, font, color = rgb(0, 0, 0), maxWidth = 1800) {
+                const textWidth = font.widthOfTextAtSize(text, size);
+                // Se o texto for muito largo, reduzimos o tamanho da fonte
+                let finalSize = size;
+                if (textWidth > maxWidth) {
+                    finalSize = size * (maxWidth / textWidth);
+                }
+                const x = (page.getWidth() - font.widthOfTextAtSize(text, finalSize)) / 2;
+                page.drawText(text, { 
+                    x, 
+                    y, 
+                    size: finalSize, 
+                    font, 
+                    color,
+                    maxWidth
+                });
+            }
+
+            // Título "CERTIFICADO DE CONCLUSÃO" (maior e com destaque)
+            drawCenteredText('CERTIFICADO DE CONCLUSÃO', 1200, 80, fontBold, rgb(0.855, 0.631, 0.247));
+
+            // Texto "CERTIFICAMOS QUE"
+            drawCenteredText('CERTIFICAMOS QUE', 1080, 50, fontRegular, rgb(0, 0.2, 0.4));
+
+            // Nome do aluno (negrito e maior)
+            drawCenteredText('LUIS EDUARDO', 980, 70, fontBold,rgb(0, 0.2, 0.4));
+
+            // Texto de conclusão
+            drawCenteredText('concluiu com sucesso o Curso de', 880, 50, fontRegular,rgb(0, 0.2, 0.4));
+
+            // Nome do curso (negrito e destacado)
+            drawCenteredText('Análise e Desenvolvimento de Sistemas', 780, 60, fontBold,rgb(0, 0.2, 0.4));
+
+            // Linha divisória centralizada (mais longa)
+            page.drawLine({
+                start: { x: 500, y: 650 },
+                end: { x: 1500, y: 650 },
+                thickness: 2,
+                color: rgb(0, 0, 0),
+                opacity: 0.7
+            });
+
+            // Container para assinaturas (centralizado)
+            const startY = 550;
+            const spacing = 80;
+
+            // Primeira assinatura
+            drawCenteredText('WILSON JOSE MOURA BARRETO', startY, 45, fontBold);
+            drawCenteredText('Diretor Geral', startY - spacing, 35, fontItalic, rgb(0.3, 0.3, 0.3));
+
+            // Segunda assinatura
+            drawCenteredText('RENAN COSTA', startY - spacing*2, 45, fontBold);
+            drawCenteredText('Conselheiro da Classe', startY - spacing*3, 35, fontItalic, rgb(0.3, 0.3, 0.3));
+
+            // Gerar o PDF
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            saveAs(blob, 'Certificado_Horizontal_Luis_Eduardo.pdf');
+        }
+    </script>
+</body>
+</html>
