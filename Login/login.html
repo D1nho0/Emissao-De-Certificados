@@ -42,21 +42,39 @@
     
 
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Evita o envio padrão do formulário
-        
-        // Captura os valores dos campos
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        
-        // Validação simples (substitua por sua lógica real)
-        if (email === "usuario@exemplo.com" && password === "senha123") {
-            // Login bem-sucedido - redireciona
-            window.location.href = "dashboard.html"; // Página após login
-        } else {
-            alert("Email ou senha incorretos!");
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.querySelector('.login-form');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const loginButton = document.querySelector('.login-button');
+
+    loginButton.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+        this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    });
+
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        loginButton.disabled = true;
+        loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Entrando...';
+
+        setTimeout(function() {
+            window.location.href = 'file:///F:/p.de.certificados/corpo/dashboard.html';
+            loginButton.disabled = false;
+            loginButton.textContent = 'Entrar';
+        }, 1500);
+    });
+
+    emailInput.addEventListener('input', function() {
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value)) {
+            this.style.borderColor = '#1a73e8';
         }
     });
-    
-</script>
 
+    passwordInput.addEventListener('input', function() {
+        if (this.value.length >= 6) {
+            this.style.borderColor = '#1a73e8';
+        }
+    });
+});
+</script>

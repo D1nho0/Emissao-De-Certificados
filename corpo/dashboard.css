@@ -24,12 +24,92 @@ header {
     height: 70px;
     position: relative;
 }
+/* Estilo do ícone de perfil */
 .perfil {
     position: absolute;
-    height: 30px;
     display: flex;
     gap: 10px;
     left: 80%;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+}
+
+.perfil:hover {
+    transform: scale(1.05);
+    border-color: #000000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Posiciona logo abaixo do ícone */
+    right: 13%; /* Mantém alinhado à direita do container pai */
+    transform: translateX(0%); /* Remove qualquer deslocamento horizontal */
+    /* Restante do seu estilo... */
+    background-color: #fff;
+    min-width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+/* Itens do dropdown */
+.dropdown-content a {
+    color: #333333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f8f8f8;
+    color: #000000;
+    padding-left: 20px;
+}
+
+/* Item especial (como Sair) */
+.dropdown-content a.logout {
+    color: #e74c3c;
+}
+
+.dropdown-content a.logout:hover {
+    background-color: #fff0f0;
+}
+
+/* Mostrar dropdown quando ativo */
+.dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Animação de aparecer */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .header-container {

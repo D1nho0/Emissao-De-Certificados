@@ -14,7 +14,12 @@
             <div class="header-container">
                 <img src="emc-removebg-preview (1).png" alt="Logo EMCWeb" class="logo">
                 <div class="buttons">
-                    <img src="perfil.png" alt="Perfil" class="perfil">
+                <img src="perfil.png" alt="Perfil" class="perfil" onclick="toggleDropdown()">
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="#">Meu Perfil</a>
+                    <a href="#">Configurações</a>
+                    <a href="#">Ajuda</a>
+                    <a href="#">Sair</a>
                 </div>
             </div>
     </header>
@@ -41,5 +46,23 @@
          </div>
         </div>
     </footer>
+     <script>
+        function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("show");
+        }
+        
+        // Fechar o dropdown se clicar fora dele
+        window.onclick = function(event) {
+            if (!event.target.matches('.perfil')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

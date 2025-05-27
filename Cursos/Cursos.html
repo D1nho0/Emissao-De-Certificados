@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos - EMCWeb</title>
+    <link rel="website icon" type="png" href="emc-removebg-preview (1).png">
+    <link rel="stylesheet" href="cursos.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="emc-removebg-preview (1).png" alt="Logo EMCWeb" class="logo">
+            <div class="profile-dropdown">
+                <img src="perfil.png" alt="Perfil" class="perfil" onclick="toggleDropdown()">
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="#">Meu Perfil</a>
+                    <a href="#">Configurações</a>
+                    <a href="#">Ajuda</a>
+                    <a href="#">Sair da Conta</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <h1 class="page-title">Cursos Disponíveis</h1>
+        
+        <div class="category-filter">
+            <button class="category-btn active">Todos</button>
+            <button class="category-btn">Tecnologia</button>
+            <button class="category-btn">Administração</button>
+            <button class="category-btn">Desenvolvimento Pessoal</button>
+        </div>
+        
+        <div class="courses-container">
+            <!-- Curso 1 -->
+            <div class="course-card">
+                <img src="gtempo.png" alt="Gestão do Tempo" class="course-image">
+                <div class="course-info">
+                    <h3 class="course-title">Gestão do Tempo</h3>
+                    <p class="course-description">Aprenda técnicas para melhorar sua produtividade e organização pessoal.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">12 horas</span>
+                        <span class="course-level level-beginner">Iniciante</span>
+                    </div>
+                    <a href="https://www.ev.org.br/cursos/gestao-do-tempo" class="course-link" target="_blank">Acessar Curso</a>
+                </div>
+            </div>
+            
+            <!-- Curso 2 -->
+            <div class="course-card">
+                <img src="excel.png" alt="Excel Básico" class="course-image">
+                <div class="course-info">
+                    <h3 class="course-title">Excel Básico</h3>
+                    <p class="course-description">Domine os fundamentos do Excel para organização e análise de dados.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">20 horas</span>
+                        <span class="course-level level-beginner">Iniciante</span>
+                    </div>
+                    <a href="https://www.ev.org.br/cursos/excel-basico" class="course-link" target="_blank">Acessar Curso</a>
+                </div>
+            </div>
+            
+            <!-- Curso 3 -->
+            <div class="course-card">
+                <img src="l.de.programação.png" alt="Lógica de Programação" class="course-image">
+                <div class="course-info">
+                    <h3 class="course-title">Fundamentos de Lógica de Programação</h3>
+                    <p class="course-description">Aprenda os conceitos básicos para desenvolver algoritmos e programas.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">15 horas</span>
+                        <span class="course-level level-beginner">Iniciante</span>
+                    </div>
+                    <a href="https://www.ev.org.br/cursos/fundamentos-de-logica-de-programacao" class="course-link" target="_blank">Acessar Curso</a>
+                </div>
+            </div>
+            
+            <!-- Curso 4 -->
+            <div class="course-card">
+                <img src="c.eficaz.png" alt="Comunicação Eficaz" class="course-image">
+                <div class="course-info">
+                    <h3 class="course-title">Comunicação Eficaz</h3>
+                    <p class="course-description">Melhore suas habilidades de comunicação interpessoal e profissional.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">10 horas</span>
+                        <span class="course-level level-intermediate">Intermediário</span>
+                    </div>
+                    <a href="https://www.ev.org.br/cursos/comunicacao-eficaz" class="course-link" target="_blank">Acessar Curso</a>
+                </div>
+            </div>
+            
+            <!-- Curso 5 -->
+            <div class="course-card">
+                <img src="r.de.compuadores.png" alt="Redes de Computadores" class="course-image">
+                <div class="course-info">
+                    <h3 class="course-title">Introdução a Redes de Computadores</h3>
+                    <p class="course-description">Conheça os conceitos básicos de redes e comunicação de dados.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">18 horas</span>
+                        <span class="course-level level-intermediate">Intermediário</span>
+                    </div>
+                    <a href="https://www.ev.org.br/cursos/introducao-a-redes-de-computadores" class="course-link" target="_blank">Acessar Curso</a>
+                </div>
+            </div>
+            
+            <!-- Curso 6 -->
+            <div class="course-card">
+                <img src="etiqueta.png" alt="Etiqueta e Protocolo" class="course-image">
+                <div class="course-info">
+                    <h3 class="course-title">Etiqueta e Protocolo</h3>
+                    <p class="course-description">Aprenda as regras de etiqueta para ambientes profissionais e sociais.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">8 horas</span>
+                        <span class="course-level level-beginner">Iniciante</span>
+                    </div>
+                    <a href="https://www.ev.org.br/cursos/etiqueta-e-protocolo" class="course-link" target="_blank">Acessar Curso</a>
+                </div>
+            </div>
+            
+            <!-- Curso 7 -->
+            <div class="course-card">
+                <img src="pbi2.png" alt="Power BI" class="course-image">
+                <div class="course-info">
+                    <h3 class="course-title">Análise de Dados com Power BI</h3>
+                    <p class="course-description">Aprenda a criar dashboards e visualizações de dados profissionais.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">25 horas</span>
+                        <span class="course-level level-advanced">Avançado</span>
+                    </div>
+                    <a href="https://www.ev.org.br/cursos/analise-de-dados-com-power-bi" class="course-link" target="_blank">Acessar Curso</a>
+                </div>
+            </div>
+            
+            <!-- Curso 8 -->
+            <div class="course-card">
+                <img src="c.security.png" alt="Cybersecurity" class="course-image">
+                <div class="course-info">
+                    <h3 class="course-title">Fundamentos de Cybersecurity</h3>
+                    <p class="course-description">Conheça os princípios básicos de segurança da informação.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">15 horas</span>
+                        <span class="course-level level-intermediate">Intermediário</span>
+                    </div>
+                    <a href="https://www.ev.org.br/cursos/fundamentos-de-cybersecurity" class="course-link" target="_blank">Acessar Curso</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div>© 2025 EMCWeb - Todos os direitos reservados</div>
+        <div class="footer-links">
+            <a href="#">Suporte</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+        </div>
+    </footer>
+
+    <script src="cursos.js"></script>
+</body>
+</html>
