@@ -17,18 +17,13 @@ Um sistema leve para **gerar e gerenciar certificados** de cursos, usando apenas
    git clone https://github.com/D1nho0/Emissao-De-Certificados.git
    ```
 2. **Abra o projeto**:
-   - Execute o arquivo `index.html` em qualquer navegador (Chrome, Firefox, etc.).
+   - Execute o arquivo `index.html` em qualquer navegador (Chrome, Opera, etc.).
 
 3. **Use o sistema**:
    - Cadastre cursos na seção correspondente.
    - Gere certificados na página principal.
 
 ⚠️ **Importante**: Os dados ficam armazenados apenas no navegador onde o sistema é executado.
-
-## 🖼️ Preview
-*(Adicione uma screenshot da interface aqui. Exemplo:)*  
-![Tela de Geração de Certificados](![image](https://github.com/user-attachments/assets/67ebbda6-4d28-4d4a-bccc-fe85ea9b8953)
-)
 
 ## 🤝 Contribuição
 Contribuições são bem-vindas! Siga os passos:
