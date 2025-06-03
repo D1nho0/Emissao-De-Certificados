@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
 
                     if (user.role === 'admin') {
-                        window.location.href = 'file:///F:/p.de.certificados/pages/admin-dashboard.html';
+                        window.location.href = 'file:///F:/p.de.certificados/pages/admin/admin-dashboard.html';
                     } else {
                         window.location.href = 'file:///F:/p.de.certificados/pages/dashboard.html';
                     }
