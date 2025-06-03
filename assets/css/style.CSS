@@ -8,7 +8,6 @@
 body {
     width: 100vw;
     min-height: 100vh;
-    background-image: url(biblioteca.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
