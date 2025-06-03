@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal - EMCWeb</title>
+    <link rel="website icon" type="png" href="F:\p.de.certificados\assets\imgs\emc-removebg-preview (1).png">
+    <link rel="stylesheet" href="F:\p.de.certificados\assets\css\style.CSS">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <img src="F:\p.de.certificados\assets\imgs\emc-removebg-preview (1).png" alt="Logo EMCWeb" class="logo">
+            <div class="buttons">
+                <a href="file:///F:/p.de.certificados/pages/login.html" class="btn">Entrar</a>
+                <a href="file:///F:/p.de.certificados/pages/registro.html" class="btn btn-register">Cadastrar</a>
+            </div>
+            <div class="cargo">
+                <a href="file:///F:/p.de.certificados/Login/login.html" class="btn-aluno">Sou aluno</a>
+                <a href="file:///F:/p.de.certificados/Login/login.html" class="btn-adm">Sou Administrador</a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div id="loginAlert" class="alert hidden">
+            <p>Você precisa estar logado para acessar esta funcionalidade.</p>
+            <div class="alert-buttons">
+                <a href="file:///F:/p.de.certificados/pages/login.html" class="btn">Fazer Login</a>
+                <a href="file:///F:/p.de.certificados/pages/registro.html" class="btn btn-register">Criar Conta</a>
+            </div>
+            <span class="close-alert" onclick="closeAlert()">&times;</span>
+        </div>
+        
+        <div class="options">
+            <div class="option" onclick="checkLogin()">Cursos</div>
+            <div class="option" onclick="checkLogin()">Meus Cursos</div>
+            <div class="option" onclick="checkLogin()">Emitir Certificado</div>
+        </div>
+    </main>
+    
+    <footer>
+        <div>© 2025 EMCWeb</div>
+        <div class="footer-links">
+            <a href="#">Suporte</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+
+    function checkLogin() {
+   
+    const isLoggedIn = false; 
+    
+    if (!isLoggedIn) {
+        document.getElementById('loginAlert').style.display = 'block';
+        document.body.style.overflow = 'hidden'; 
+    }
+   
+}
+
+function closeAlert() {
+    document.getElementById('loginAlert').style.display = 'none';
+    document.body.style.overflow = 'auto'; 
+}
+
+window.onclick = function(event) {
+    const alert = document.getElementById('loginAlert');
+    if (event.target === alert) {
+        closeAlert();
+    }
+}
+</script>

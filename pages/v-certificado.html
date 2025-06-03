@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Certificado - EMCWeb</title>
+    <link rel="stylesheet" href="F:\p.de.certificados\assets\css\validacao.css">
+<body>
+    <header>
+        <div class="header-container">
+         <div class="logo-container">
+            <a href="file:///F:/p.de.certificados/pages/dashboard.html">
+                <img src="F:\p.de.certificados\assets\imgs\emc-removebg-preview (1).png" alt="Logo EMCWeb" class="logo">
+            <a/>
+         </div>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="validation-container">
+            <h1>Validação de Certificado</h1>
+            <p>Digite o código de autenticação do certificado para verificar sua validade.</p>
+            
+            <div class="validation-form">
+                <div class="form-group">
+                    <label for="codigoCertificado">Código do Certificado:</label>
+                    <input type="text" id="codigoCertificado" placeholder="Ex: EMC-2023-ABCD-1234" required>
+                </div>
+                
+                <button class="validate-btn" onclick="validarCertificado()">Validar Certificado</button>
+            </div>
+            
+            <div id="containerResultado" class="result-container">
+                <h2 id="tituloResultado">Resultado da Validação</h2>
+                <div id="detalhesCertificado" class="certificate-info"></div>
+                <button id="btnGerarCertificado" class="download-btn" style="display: none;">Gerar Certificado em PDF</button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div>© 2025 EMCWeb - Todos os direitos reservados</div>
+        <div class="footer-links">
+            <a href="#">Suporte</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+        </div>
+    </footer>
+
+    <script src="F:\p.de.certificados\src\validacao.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+</body>
+</html>
+
+
+<script src="F:\p.de.certificados\src\validacao.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const parametrosURL = new URLSearchParams(window.location.search);
+        const codigoURL = parametrosURL.get('codigo');
+        
+        if (codigoURL) {
+            document.getElementById('codigoCertificado').value = codigoURL;
+            validarCertificado(); 
+        }
+        
+        carregarCertificado();
+    });
+</script>
+
+

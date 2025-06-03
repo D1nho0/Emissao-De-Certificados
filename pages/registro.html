@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - EMCWeb</title>
+    <link rel="stylesheet" href="F:\p.de.certificados\assets\css\style-registro.css">
+</head>
+<body>
+    <div class="logo-container">
+        <a href="file:///F:/p.de.certificados/corpo/index.html#">
+         <img src="F:\p.de.certificados\assets\imgs\emc-removebg-preview (1).png" alt="Logo EMCWeb" class="site-logo">
+        <a/>
+    </div>
+
+    <div class="login-container">
+        <h1>Cadastrar</h1>
+        <form class="login-form">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirmar Senha</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="login-button">Cadastrar</button>
+        </form>
+        <div class="existent-account">
+            <a href="file:///F:/p.de.certificados/Login/login.html">Já tem uma conta? Faça login</a>
+        </div>
+    </div>
+
+    <footer class="transparent-footer">
+        <div class="footer-content">
+            © 2025 EMCWeb | <a href="#">Suporte</a> | <a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const registerForm = document.querySelector('.login-form');
+    const nameInput = document.getElementById('nome');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const registerButton = document.querySelector('.login-button');
+
+
+    registerButton.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+        this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    });
+    
+    registerButton.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = 'none';
+    });
+
+
+    registerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+
+        nameInput.style.borderColor = '#ddd';
+        emailInput.style.borderColor = '#ddd';
+        passwordInput.style.borderColor = '#ddd';
+        confirmPasswordInput.style.borderColor = '#ddd';
+        
+
+        let isValid = true;
+        
+
+        if (!nameInput.value.trim()) {
+            nameInput.style.borderColor = 'red';
+            isValid = false;
+            alert('Por favor, insira seu nome completo');
+        }
+        
+
+        if (!emailInput.value) {
+            emailInput.style.borderColor = 'red';
+            isValid = false;
+            alert('Por favor, insira um email');
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+            emailInput.style.borderColor = 'red';
+            isValid = false;
+            alert('Por favor, insira um email válido');
+        }
+        
+
+        if (!passwordInput.value) {
+            passwordInput.style.borderColor = 'red';
+            isValid = false;
+            alert('Por favor, insira uma senha');
+        } else if (passwordInput.value.length < 6) {
+            passwordInput.style.borderColor = 'red';
+            isValid = false;
+            alert('A senha deve ter pelo menos 6 caracteres');
+        }
+        
+
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            passwordInput.style.borderColor = 'red';
+            confirmPasswordInput.style.borderColor = 'red';
+            isValid = false;
+            alert('As senhas não coincidem');
+        }
+        
+
+        if (isValid) {
+            registerButton.disabled = true;
+            registerButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cadastrando...';
+            
+
+            setTimeout(function() {
+                alert('Cadastro realizado com sucesso! Redirecionando...');
+                window.location.href = 'file:///F:/p.de.certificados/Login/login.html'; 
+                
+
+                registerButton.disabled = false;
+                registerButton.textContent = 'Cadastrar';
+            }, 1500);
+        }
+    });
+    
+
+    emailInput.addEventListener('input', function() {
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value)) {
+            this.style.borderColor = '#1a73e8';
+        }
+    });
+    
+    passwordInput.addEventListener('input', function() {
+        if (this.value.length >= 6) {
+            this.style.borderColor = '#1a73e8';
+        }
+    });
+    
+    confirmPasswordInput.addEventListener('input', function() {
+        if (this.value === passwordInput.value && passwordInput.value.length >= 6) {
+            this.style.borderColor = '#1a73e8';
+            passwordInput.style.borderColor = '#1a73e8';
+        }
+    });
+});
+</script>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Cursos - EMCWeb</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="F:\p.de.certificados\assets\css\meus-cursos.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+         <div class="logo-container">
+            <a href="file:///F:/p.de.certificados/pages/dashboard.html">
+                <img src="F:\p.de.certificados\assets\imgs\emc-removebg-preview (1).png" alt="Logo EMCWeb" class="logo">
+            <a/>
+         </div>
+            <div class="user-info">
+                <span>Cláudio Bernardo</span>
+                <div class="buttons">
+                    <img src="F:\p.de.certificados\assets\imgs\perfil.png" alt="Perfil" class="perfil" onclick="toggleDropdown()">
+                    <div id="dropdownMenu" class="dropdown-content">
+                        <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Ajuda</a>
+                        <a href="#" id="logoutLink"> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <h1><i class="fas fa-graduation-cap"></i> Meus Cursos Concluídos</h1>
+        
+        <div class="courses-container">
+            <div class="course-card">
+                <div class="course-image">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Introdução à Programação Web</h3>
+                    <div class="course-details">
+                        <p><i class="far fa-clock"></i> 40 horas</p>
+                        <p><i class="far fa-calendar-alt"></i> Concluído em: 15/03/2025</p>
+                        <p><i class="fas fa-hashtag"></i> Código: <span class="certificate-code">EMC-2025-WEBX-4281</span></p>
+                    </div>
+                    <span class="course-status">Concluído</span>
+                    <a href="file:///F:/p.de.certificados/pages/v-certificado.html" class="btn btn-certificate">
+                        <i class="fas fa-certificate"></i> Emitir Certificado
+                    </a>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-image" style="background-color: #9b59b6;">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Banco de Dados Fundamentais</h3>
+                    <div class="course-details">
+                        <p><i class="far fa-clock"></i> 30 horas</p>
+                        <p><i class="far fa-calendar-alt"></i> Concluído em: 22/02/2025</p>
+                        <p><i class="fas fa-hashtag"></i> Código: <span class="certificate-code">EMC-2025-DATA-7392</span></p>
+                    </div>
+                    <span class="course-status">Concluído</span>
+                    <a href="file:///F:/p.de.certificados/pages/v-certificado.html" class="btn btn-certificate">
+                        <i class="fas fa-certificate"></i> Emitir Certificado
+                    </a>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-image" style="background-color: #e74c3c;">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Segurança da Informação</h3>
+                    <div class="course-details">
+                        <p><i class="far fa-clock"></i> 35 horas</p>
+                        <p><i class="far fa-calendar-alt"></i> Concluído em: 10/04/2025</p>
+                        <p><i class="fas fa-hashtag"></i> Código: <span class="certificate-code">EMC-2025-SECU-6153</span></p>
+                    </div>
+                    <span class="course-status">Concluído</span>
+                    <a href="file:///F:/p.de.certificados/pages/v-certificado.html" class="btn btn-certificate">
+                        <i class="fas fa-certificate"></i> Emitir Certificado
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <footer>
+        <div>© 2025 EMCWeb - Todos os direitos reservados</div>
+        <div class="footer-links">
+            <a href="#">Suporte</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+        </div>
+    </footer>
+
+    <script src="F:\p.de.certificados\src\meus-cursos.js"></script>
+</body>
+</html>
