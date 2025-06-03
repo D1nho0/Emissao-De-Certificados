@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Admin - EMCWeb</title>
     <link rel="website icon" type="png" href="F:\p.de.certificados\assets\imgs\emc-removebg-preview (1).png">
-    <link rel="stylesheet" href="F:\p.de.certificados\assets\css\dashboard.css">
+    <link rel="stylesheet" href="F:\p.de.certificados\assets\css\dashboard-admin.css">
 </head>
-<body style="background-image: url('F:\p.de.certificados\assets\imgs\biblioteca (2).jpg'); background-size: cover; background-repeat: no-repeat;">
+<body>
     <header>
         <header class="header">
             <div class="header-container">
@@ -25,22 +25,19 @@
             </div>
         </header>
     </header>
-    <main class="main-content">
-        <div class="options">
-            <div class="option" onclick="navigateTo('gerir-cursos')">
-                <h3>Gerir Cursos</h3>
-            </div>
-            <div class="option" onclick="navigateTo('gerir-usuarios')">
-                <h3>Gerir Usuários</h3>
-            </div>
-            <div class="option" onclick="navigateTo('emitir-certificados')">
-                <h3>Emitir Certificados</h3>
-            </div>
-            <div class="option" onclick="navigateTo('relatorios')">
-                <h3>Relatórios</h3>
-            </div>
+<main class="main-content">
+    <div class="options">
+        <div class="option" onclick="navigateTo('file:///F:/p.de.certificados/pages/admin/gerir%20cursos.html')">
+            <h3>Gerir Cursos</h3>
         </div>
-    </main>
+        <div class="option" onclick="navigateTo('file:///F:/p.de.certificados/pages/admin/gerir_usuario.html')">
+            <h3>Gerir Usuários</h3>
+        </div>
+        <div class="option" onclick="navigateTo('file:///F:/p.de.certificados/pages/admin/relatorios.html')">
+            <h3>Relatórios</h3>
+        </div>
+    </div>
+</main>
     <footer>
         <div>© 2025 EMCWeb - Painel Administrativo</div>
         <div class="footer-links">
@@ -51,6 +48,9 @@
         </div>
     </footer>
     <script src="F:\p.de.certificados\src\logout.js"></script>
+    <script>function navigateTo(url) {
+    window.location.href = url;
+}</script>
 
 </body>
 </html>

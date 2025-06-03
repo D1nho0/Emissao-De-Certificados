@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - EMCWeb</title>
+    <link rel="stylesheet" href="F:\p.de.certificados\assets\css\admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header class="admin-header">
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="file:///F:/p.de.certificados/pages/admin/admin-dashboard.html">
+                <img src="../../assets/imgs/emc-removebg-preview (1).png" alt="Logo EMCWeb" class="logo">
+            </a>
+        </div>
+        
+        <h1><i class="fas fa-chart-pie"></i> Relatórios</h1> 
+        
+        <div class="user-info">
+            <span>Administrador</span>
+            <div class="buttons">
+                <img src="../../assets/imgs/perfil.png" alt="Perfil" class="perfil" onclick="alternarDropdown()">
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                    <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Ajuda</a>
+                    <a href="#" id="logoutLink"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main class="admin-main">
+        <div class="report-filters">
+            <div class="filter-group">
+                <label for="periodo"><i class="fas fa-calendar-alt"></i> Período:</label>
+                <select id="periodo">
+                    <option value="semana">Última semana</option>
+                    <option value="mes" selected>Último mês</option>
+                    <option value="trimestre">Último trimestre</option>
+                    <option value="semestre">Último semestre</option>
+                    <option value="ano">Último ano</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="curso"><i class="fas fa-book"></i> Curso:</label>
+                <select id="curso">
+                    <option value="todos" selected>Todos os cursos</option>
+                    <option value="web">Programação Web</option>
+                    <option value="design">Design Gráfico</option>
+                    <option value="marketing">Marketing Digital</option>
+                    <option value="dados">Ciência de Dados</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="atualizarRelatorios()">
+                <i class="fas fa-sync-alt"></i> Atualizar
+            </button>
+        </div>
+
+        <div class="reports-grid">
+            <div class="report-card summary-card">
+                <h3><i class="fas fa-info-circle"></i> Resumo Geral</h3>
+                <div class="summary-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">1,248</div>
+                        <div class="stat-label">Usuários Ativos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">356</div>
+                        <div class="stat-label">Certificados Emitidos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Cursos Ativos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">94%</div>
+                        <div class="stat-label">Satisfação</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="report-card">
+                <h3><i class="fas fa-certificate"></i> Certificados Emitidos</h3>
+                <canvas id="certificatesChart"></canvas>
+                <div class="chart-footer">
+                    <span><i class="fas fa-arrow-up text-success"></i> 12% em relação ao mês anterior</span>
+                </div>
+            </div>
+            
+
+            <div class="report-card">
+                <h3><i class="fas fa-users"></i> Usuários Ativos</h3>
+                <canvas id="usersChart"></canvas>
+                <div class="chart-footer">
+                    <span>Total: 1,248 usuários</span>
+                </div>
+            </div>
+            
+
+            <div class="report-card">
+                <h3><i class="fas fa-star"></i> Cursos Mais Populares</h3>
+                <canvas id="popularCoursesChart"></canvas>
+            </div>
+            
+
+            <div class="report-card">
+                <h3><i class="fas fa-check-circle"></i> Taxa de Conclusão</h3>
+                <canvas id="completionRateChart"></canvas>
+                <div class="chart-footer">
+                    <span>Média: 78% de conclusão</span>
+                </div>
+            </div>
+            
+
+            <div class="report-card activity-card">
+                <h3><i class="fas fa-list-alt"></i> Atividades Recentes</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon success">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Certificado emitido para João Silva</div>
+                            <div class="activity-meta">Curso: Programação Web - 10/06/2023</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon primary">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Novo usuário cadastrado</div>
+                            <div class="activity-meta">Maria Oliveira - 09/06/2023</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon warning">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Novo curso adicionado</div>
+                            <div class="activity-meta">Ciência de Dados Básico - 08/06/2023</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon danger">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Problema reportado</div>
+                            <div class="activity-meta">Certificado não gerado - 07/06/2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../assets/js/admin.js"></script>
+    <script src="F:\p.de.certificados\src\relatorio.js"></script> 
+
+</body>
+</html>
