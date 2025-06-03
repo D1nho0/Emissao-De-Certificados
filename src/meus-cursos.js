@@ -16,7 +16,6 @@
 
 
 
-// Banco de dados de certificados
 const bancoDeCertificados = [
     {
         codigo: "EMC-2025-WEBX-4281",

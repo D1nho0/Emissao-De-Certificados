@@ -1,4 +1,3 @@
-// Funções para abrir e fechar modais
 function abrirModal(idModal) {
     const modal = document.getElementById(`${idModal}-modal`);
     if (modal) {

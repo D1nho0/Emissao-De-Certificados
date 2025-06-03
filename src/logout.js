@@ -11,7 +11,6 @@ function fazerLogout() {
     window.location.href = 'file:///F:/p.de.certificados/pages/index.html';
 }
 
-// Fechar dropdown ao clicar fora
 window.onclick = function(event) {
     if (!event.target.matches('.perfil')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");

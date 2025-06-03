@@ -70,7 +70,6 @@ function validarCertificado() {
                 </div>
             `;
             
-            // Mostrar botão de download apenas para certificados válidos
             btnGerarCertificado.style.display = 'block';
             btnGerarCertificado.onclick = gerarCertificado;
         } else {
@@ -94,7 +93,6 @@ async function gerarCertificado() {
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage([600, 400]); 
 
-    // Fundo do certificado
     const corFundo = rgb(1, 0.988, 0.937); 
     page.drawRectangle({
         x: 0,
@@ -106,11 +104,11 @@ async function gerarCertificado() {
         borderWidth: 0,
     });
 
-    // Fontes
+
     const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
     const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
-    // Cabeçalho
+
     page.drawText('CERTIFICADO', {
         x: 180,
         y: 320,
@@ -119,7 +117,7 @@ async function gerarCertificado() {
         color: rgb(0, 0.2, 0.4), 
     });
 
-    // Texto do certificado
+  
     page.drawText('Conferimos que', {
         x: 220,
         y: 270,
@@ -185,7 +183,7 @@ async function gerarCertificado() {
         color: rgb(0, 0.2, 0.4),
     });
 
-    // Gerar e baixar o PDF
+
     const pdfBytes = await pdfDoc.save();
     const blob = new Blob([pdfBytes], { type: 'application/pdf' });
     saveAs(blob, `Certificado_${certificadoAtual.nome.replace(/\s+/g, '_')}_${certificadoAtual.curso.replace(/\s+/g, '_')}.pdf`);
