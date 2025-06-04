@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
 
                     if (user.role === 'admin') {
-                        window.location.href = '../pages/admin/admin-dashboard.html';
+                        window.location.href = '../pages/admin-dashboard.html';
                     } else {
                         window.location.href = '../pages/dashboard.html';
                     }
