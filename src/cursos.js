@@ -9,7 +9,7 @@ function fazerLogout() {
     localStorage.removeItem('token');
     
 
-    window.location.href = 'file:///F:/p.de.certificados/pages/index.html';
+    window.location.href = '../index.html';
 }
 
 
