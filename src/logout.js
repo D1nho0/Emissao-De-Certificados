@@ -8,7 +8,7 @@ function fazerLogout() {
     localStorage.removeItem('token');
     
 
-    window.location.href = '/p.de.certificados/index.html';
+    window.location.href = '../index.html';
 }
 
 window.onclick = function(event) {
